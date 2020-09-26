@@ -6,16 +6,23 @@ namespace WageComp
     {
         static void Main(string[] args)
         {
+            int wagePerHour = 20;
+            int empHrs;
             Random r = new Random();
+
             int check = r.Next(0, 2);
             if (check == 1)
             {
-                Console.WriteLine("Employee is Present");
+                empHrs = 8;
+
             }
             else
             {
-                Console.WriteLine("Employee is Absent");
+                empHrs = 0;
 
             }
+            Console.WriteLine("The wage is " + empHrs * wagePerHour);
+
+        }
     }
 }
