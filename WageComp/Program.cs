@@ -10,11 +10,11 @@ namespace WageComp
             int check = r.Next(0, 2);
             if (check == 1)
             {
-                Console.WriteLine("Employee is present");
+                Console.WriteLine("Employee is Present");
             }
             else
             {
-                Console.WriteLine("Employee is absent");
+                Console.WriteLine("Employee is Absent");
             }
             
 
