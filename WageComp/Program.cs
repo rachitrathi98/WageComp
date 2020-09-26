@@ -15,9 +15,10 @@ namespace WageComp
             else
             {
                 Console.WriteLine("Employee is Absent");
-            }
-            
 
-        }
+                Console.WriteLine("Employee is Absent");
+
+
+            }
     }
 }
