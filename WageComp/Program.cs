@@ -7,26 +7,29 @@ namespace WageComp
         static void Main(string[] args)
         {
             int wagePerHour = 20;
-            int empHrs;
+            int empHrs=8;
+            int workingDays = 20;
+            int monthlyWages=0;
+            int dailyWages;
+
             Random r = new Random();
 
-            int check = r.Next(0, 3);
-            switch(check)
+           
+            for(int i = 0; i < workingDays; i++)
             {
-                case 0: empHrs = 0;
-                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
-                        break;
-                case 1: empHrs = 4;
-                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
-                        break; 
-                case 2: empHrs = 8;
-                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
-                        break;
-                default: Console.WriteLine("The wage does not exist");
-                         break;
-
+                int check = r.Next(0, 2);
+                if (check == 1)
+                {
+                    dailyWages = wagePerHour * empHrs*check;
+                }
+                else
+                {
+                    dailyWages = wagePerHour * empHrs*check;
+                }
+                monthlyWages = monthlyWages + dailyWages;
             }
-            
+            Console.WriteLine("The monthly wages are " + monthlyWages);
+                      
 
         }
     }
