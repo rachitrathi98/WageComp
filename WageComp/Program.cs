@@ -11,21 +11,22 @@ namespace WageComp
             Random r = new Random();
 
             int check = r.Next(0, 3);
-            if (check == 1)
+            switch(check)
             {
-                empHrs = 8;
+                case 0: empHrs = 0;
+                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
+                        break;
+                case 1: empHrs = 4;
+                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
+                        break; 
+                case 2: empHrs = 8;
+                        Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
+                        break;
+                default: Console.WriteLine("The wage does not exist");
+                         break;
 
             }
-            else if(check==2)
-            {
-                empHrs = 4;
-
-            }
-            else
-            {
-                empHrs = 0;
-            }
-            Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
+            
 
         }
     }
