@@ -11,22 +11,35 @@ namespace WageComp
             int workingDays = 20;
             int monthlyWages=0;
             int dailyWages;
-
+            int monthWorkHrs = 0;
+            int maxMonthWorkHrs = 100;
             Random r = new Random();
 
            
             for(int i = 0; i < workingDays; i++)
             {
-                int check = r.Next(0, 2);
-                if (check == 1)
+                if (monthWorkHrs < maxMonthWorkHrs)
                 {
-                    dailyWages = wagePerHour * empHrs*check;
+                    int check = r.Next(0, 2);
+                    if (check == 1)
+                    {
+                        dailyWages = wagePerHour * empHrs * check;
+                        monthWorkHrs = monthWorkHrs + empHrs*check;
+                    }
+                    else
+                    {
+                        dailyWages = wagePerHour * empHrs * check;
+                        monthWorkHrs = monthWorkHrs + empHrs*check;
+
+                    }
+                    monthlyWages = monthlyWages + dailyWages;
+
                 }
                 else
                 {
-                    dailyWages = wagePerHour * empHrs*check;
+                    Console.WriteLine("Reached Maximum Working Hours");
                 }
-                monthlyWages = monthlyWages + dailyWages;
+
             }
             Console.WriteLine("The monthly wages are " + monthlyWages);
                       
@@ -34,3 +47,7 @@ namespace WageComp
         }
     }
 }
+
+
+
+
