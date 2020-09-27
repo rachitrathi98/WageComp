@@ -21,7 +21,7 @@ namespace WageComp
                 empHrs = 0;
 
             }
-            Console.WriteLine("The Wage is not so good third" + empHrs * wagePerHour);
+            Console.WriteLine("The daily wage is " + empHrs * wagePerHour);
 
         }
     }
