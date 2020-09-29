@@ -1,32 +1,25 @@
 ﻿using System;
-using System.Reflection;
-using System.Runtime.CompilerServices;
 
 namespace WageComp
 {
-    public class Program
+    class Program
     {
 
         public const int PART_TIME = 1;
         public const int FULL_TIME = 2;
 
-        private string company;
-        private int wagePerHr;
-        private int workDays;
-        private int maxMonHr;
-        private int totalEmpWage;
-
-        public Program(String company, int wagePerHr, int workDays, int maxMonHr)
+        static void Main(string[] args)
         {
-            this.company = company;
-            this.wagePerHr = wagePerHr;
-            this.workDays = workDays;
-            this.maxMonHr = maxMonHr;
+            Console.WriteLine("Welcome to the Employee Wage Problem");
+
+            compEmpWage("Reliance", 20, 20, 100);//Company Name, Wage per hour, Working days, Max monthly hours
+            compEmpWage("Tata", 20, 10, 50);
+
         }
 
-        public void computeWage()
+        public static void compEmpWage(String company, int wagePerHr, int workDays, int maxMonHr)
         {
-            int totalWorkingDays = 0; int totalEmpHrs = 0;
+            int monthlySalary = 0; int totalWorkingDays = 0; int totalEmpHrs = 0;
             while (totalEmpHrs < maxMonHr && totalWorkingDays < workDays)
             {
                 totalWorkingDays++;
@@ -36,9 +29,9 @@ namespace WageComp
                 totalEmpHrs = totalEmpHrs + empHrs;
 
             }
-            totalEmpWage = wagePerHr * totalEmpHrs;
+            monthlySalary = wagePerHr * totalEmpHrs;
+            Console.WriteLine("Total Salary of " + company + " employee in the month is " + monthlySalary);
         }
- 
         public static int getWorkingHrs(int check)
         {
             int empHrs = 0;
@@ -57,14 +50,8 @@ namespace WageComp
             }
             return empHrs;
         }
-    public string toString()
-    {
-        return "Total Emp wage for the company " + company + " is " + totalEmpWage;
-    }
     }
 }
-
-
 
 
 
