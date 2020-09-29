@@ -4,26 +4,23 @@ namespace WageComp
 {
     class Program
     {
-        public const int WAGE_PER_HOUR = 20;
-        public const int WORKING_DAYS = 20;
-        public const int MAX_MONTH_HRS = 100;
+
         public const int PART_TIME = 1;
         public const int FULL_TIME = 2;
 
-        public static int totalWorkingDays = 0;
-        public static int totalEmpHrs = 0;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Employee Wage Problem");
-            compEmpWage();
 
+            compEmpWage("Reliance", 20, 20, 100);//Company Name, Wage per hour, Working days, Max monthly hours
+            compEmpWage("Tata", 20, 10, 50);
 
         }
 
-        public static void compEmpWage()
+        public static void compEmpWage(String company, int wagePerHr, int workDays, int maxMonHr)
         {
-            int monthlySalary = 0;
-            while (totalEmpHrs < MAX_MONTH_HRS && totalWorkingDays < WORKING_DAYS)
+            int monthlySalary = 0; int totalWorkingDays = 0; int totalEmpHrs = 0;
+            while (totalEmpHrs < maxMonHr && totalWorkingDays < workDays)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -32,8 +29,8 @@ namespace WageComp
                 totalEmpHrs = totalEmpHrs + empHrs;
 
             }
-            monthlySalary = WAGE_PER_HOUR * totalEmpHrs;
-            Console.WriteLine("Total Salary of the employee in the month is " + monthlySalary);
+            monthlySalary = wagePerHr * totalEmpHrs;
+            Console.WriteLine("Total Salary of " + company + " employee in the month is " + monthlySalary);
         }
         public static int getWorkingHrs(int check)
         {
@@ -55,4 +52,7 @@ namespace WageComp
         }
     }
 }
+
+
+
 
