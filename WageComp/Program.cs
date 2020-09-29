@@ -4,17 +4,16 @@ namespace WageComp
 {
     class Program
     {
+        const int wagePerHour = 20;
+        int empHrs = 8;
+        int workingDays = 20;
+        int monthlyWages = 0;
+        int dailyWages;
+        int monthWorkHrs = 0;
+        const int maxMonthWorkHrs = 100;
         static void Main(string[] args)
         {
-            int wagePerHour = 20;
-            int empHrs=8;
-            int workingDays = 20;
-            int monthlyWages=0;
-            int dailyWages;
-            int monthWorkHrs = 0;
-            int maxMonthWorkHrs = 100;
-            Random r = new Random();
-
+            
            
             for(int i = 0; i < workingDays; i++)
             {
@@ -44,6 +43,10 @@ namespace WageComp
             Console.WriteLine("The monthly wages are " + monthlyWages);
                       
 
+        }
+        public static int getWorkingHrs()
+        {
+            Random r = new Random();
         }
     }
 }
