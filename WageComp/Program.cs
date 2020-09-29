@@ -4,49 +4,58 @@ namespace WageComp
 {
     class Program
     {
-        const int wagePerHour = 20;
-        int empHrs = 8;
-        int workingDays = 20;
-        int monthlyWages = 0;
-        int dailyWages;
-        int monthWorkHrs = 0;
-        const int maxMonthWorkHrs = 100;
+        public const int WAGE_PER_HOUR = 20;
+        public const int WORKING_DAYS = 20;
+        public const int MAX_MONTH_HRS= 100;
+        public const int FULL_TIME = 1;
+        public const int PART_TIME = 2;
+       
+        public static int totalWorkingDays = 0;
+        public static int dailyWages;
+        public static int totalEmpHrs = 0;
         static void Main(string[] args)
         {
-            
-           
-            for(int i = 0; i < workingDays; i++)
-            {
-                if (monthWorkHrs < maxMonthWorkHrs)
-                {
-                    int check = r.Next(0, 2);
-                    if (check == 1)
-                    {
-                        dailyWages = wagePerHour * empHrs * check;
-                        monthWorkHrs = monthWorkHrs + empHrs*check;
-                    }
-                    else
-                    {
-                        dailyWages = wagePerHour * empHrs * check;
-                        monthWorkHrs = monthWorkHrs + empHrs*check;
-
-                    }
-                    monthlyWages = monthlyWages + dailyWages;
-
-                }
-                else
-                {
-                    Console.WriteLine("Reached Maximum Working Hours");
-                }
-
-            }
-            Console.WriteLine("The monthly wages are " + monthlyWages);
-                      
+            Console.WriteLine("Welcome to the Employee Wage Problem");
+            compEmpWage();
+                     
 
         }
-        public static int getWorkingHrs()
+
+        public static void compEmpWage()
         {
-            Random r = new Random();
+            int monthlySalary = 0;
+            while (totalEmpHrs < MAX_MONTH_HRS && totalWorkingDays < WORKING_DAYS)
+            {
+                totalWorkingDays++;
+                Random random = new Random();
+                int rand = random.Next(0, 3);
+                int empHrs = getWorkingHrs(rand);
+                totalEmpHrs = totalEmpHrs + empHrs;
+
+            }
+            monthlySalary = WAGE_PER_HOUR * totalEmpHrs;
+            Console.WriteLine("Total Salary of the employee in the month is " + monthlySalary);
+        }
+        public static int getWorkingHrs(int check)
+        {
+            int empHrs=0;
+            switch (check)
+            {
+                case 0:
+                    empHrs = 0;
+                    break;
+                case 1:
+                    empHrs = 4;                  
+                    break;
+                case 2:
+                    empHrs = 8;                   
+                    break;
+                default:
+                    empHrs = 0;
+                    break;
+
+            }
+            return empHrs;
         }
     }
 }
