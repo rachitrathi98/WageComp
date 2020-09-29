@@ -6,17 +6,17 @@ namespace WageComp
     {
         public const int WAGE_PER_HOUR = 20;
         public const int WORKING_DAYS = 20;
-        public const int MAX_MONTH_HRS= 100;
+        public const int MAX_MONTH_HRS = 100;
         public const int PART_TIME = 1;
         public const int FULL_TIME = 2;
-       
+
         public static int totalWorkingDays = 0;
         public static int totalEmpHrs = 0;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Employee Wage Problem");
             compEmpWage();
-                     
+
 
         }
 
@@ -37,14 +37,14 @@ namespace WageComp
         }
         public static int getWorkingHrs(int check)
         {
-            int empHrs=0;
+            int empHrs = 0;
             switch (check)
             {
                 case PART_TIME:
-                    empHrs = 4;                  
+                    empHrs = 4;
                     break;
                 case FULL_TIME:
-                    empHrs = 8;                   
+                    empHrs = 8;
                     break;
                 default:
                     empHrs = 0;
@@ -55,7 +55,4 @@ namespace WageComp
         }
     }
 }
-
-
-
 
