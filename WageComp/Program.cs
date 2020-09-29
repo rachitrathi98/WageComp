@@ -7,11 +7,10 @@ namespace WageComp
         public const int WAGE_PER_HOUR = 20;
         public const int WORKING_DAYS = 20;
         public const int MAX_MONTH_HRS= 100;
-        public const int FULL_TIME = 1;
-        public const int PART_TIME = 2;
+        public const int PART_TIME = 1;
+        public const int FULL_TIME = 2;
        
         public static int totalWorkingDays = 0;
-        public static int dailyWages;
         public static int totalEmpHrs = 0;
         static void Main(string[] args)
         {
@@ -28,7 +27,7 @@ namespace WageComp
             {
                 totalWorkingDays++;
                 Random random = new Random();
-                int rand = random.Next(0, 3);
+                int rand = random.Next(1, 4);
                 int empHrs = getWorkingHrs(rand);
                 totalEmpHrs = totalEmpHrs + empHrs;
 
@@ -41,13 +40,10 @@ namespace WageComp
             int empHrs=0;
             switch (check)
             {
-                case 0:
-                    empHrs = 0;
-                    break;
-                case 1:
+                case PART_TIME:
                     empHrs = 4;                  
                     break;
-                case 2:
+                case FULL_TIME:
                     empHrs = 8;                   
                     break;
                 default:
