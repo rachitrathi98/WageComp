@@ -9,25 +9,32 @@ namespace WageComp
 
         public const int PART_TIME = 1;
         public const int FULL_TIME = 2;
+        private ComputeWage[] computeWageArray;
+        private int noOfCompany = 0;
 
-        private string company;
-        private int wagePerHr;
-        private int workDays;
-        private int maxMonHr;
-        private int totalEmpWage;
-
-        public Program(String company, int wagePerHr, int workDays, int maxMonHr)
+         public Program()
         {
-            this.company = company;
-            this.wagePerHr = wagePerHr;
-            this.workDays = workDays;
-            this.maxMonHr = maxMonHr;
+            this.computeWageArray = new ComputeWage[5];
         }
-
-        public void computeWage()
+        public void addCompanyEmpWage(String company, int wagePerHr, int workDays, int maxMonHr)
         {
-            int totalWorkingDays = 0; int totalEmpHrs = 0;
-            while (totalEmpHrs < maxMonHr && totalWorkingDays < workDays)
+            computeWageArray[this.noOfCompany] = new ComputeWage(company, wagePerHr, workDays, maxMonHr);
+
+            noOfCompany++;
+        }
+        public void computeWage()
+            {
+                for(int i = 0; i < noOfCompany; i++)
+                {
+                computeWageArray[i].setTotalEmpWage(this.computeWage(this.computeWageArray[i]));
+                    Console.WriteLine(this.computeWageArray[i].toString());
+                }
+            }
+
+        private int computeWage(ComputeWage compEmpWage)
+        {
+            int totalWorkingDays = 0; int totalEmpHrs = 0; 
+            while (totalEmpHrs < compEmpWage.maxMonHr && totalWorkingDays < compEmpWage.workDays)
             {
                 totalWorkingDays++;
                 Random random = new Random();
@@ -36,7 +43,7 @@ namespace WageComp
                 totalEmpHrs = totalEmpHrs + empHrs;
 
             }
-            totalEmpWage = wagePerHr * totalEmpHrs;
+            return compEmpWage.wagePerHr * totalEmpHrs;
         }
  
         public static int getWorkingHrs(int check)
@@ -57,10 +64,6 @@ namespace WageComp
             }
             return empHrs;
         }
-    public string toString()
-    {
-        return "Total Emp wage for the company " + company + " is " + totalEmpWage;
-    }
     }
 }
 

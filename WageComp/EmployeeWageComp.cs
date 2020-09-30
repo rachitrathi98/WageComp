@@ -8,13 +8,10 @@ namespace WageComp
     {
         static void Main(string[] args)
         {
-            Program reliance = new Program("Reliance", 20, 20, 100);
-            reliance.computeWage();
-            Console.WriteLine(reliance.toString());
-            Program Tata = new Program("Tata", 20, 10, 50);
-            Tata.computeWage();
-            Console.WriteLine(Tata.toString());
-
+            Program program = new Program();
+            program.addCompanyEmpWage("Reliance", 20, 10, 50);
+            program.addCompanyEmpWage("Tata", 20, 10, 50);
+            program.computeWage();
 
         }
     }
