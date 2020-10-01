@@ -12,17 +12,9 @@ namespace WageComp
         private List<ComputeWage> companyEmpWagesList = new List<ComputeWage>();
         private Dictionary<string, ComputeWage> companyToEmpWageMap= new Dictionary<string, ComputeWage>();
         
-        public EmployeeWageComp()
-        {
-            //this.companyEmpWagesList = new LinkedList<ComputeWage>();
-            //this.companyToEmpWageMap = new Dictionary<string, ComputeWage>();
-        }
-       
-
         public void AddCompanyEmpWage(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             ComputeWage companyEmpWage = new ComputeWage(company, empRatePerHour, numOfWorkingDays, maxHoursPerMonth);
-            //this.companyEmpWagesList.AddLast(companyEmpWage);
             companyToEmpWageMap.Add(company, companyEmpWage);
             companyEmpWagesList.Add(companyEmpWage);
             

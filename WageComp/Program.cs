@@ -10,7 +10,7 @@ namespace WageComp
             empWageBuilder.AddCompanyEmpWage("Dmart", 20, 2, 20);
             empWageBuilder.AddCompanyEmpWage("Reliance", 15, 14, 40);
             empWageBuilder.ComputeEmpWage();
-           // Console.WriteLine("Total wage for Dmart is: " + empWageBuilder.GetTotalWage("Dmart"));
+           Console.WriteLine("Total wage for Dmart is: " + empWageBuilder.GetTotalWage("Dmart"));
             Console.ReadKey();
         }
     }
